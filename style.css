@@ -1,0 +1,78 @@
+﻿/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.custom-navbar {
+    /* Use a dominant color, or stick to the first color of your gradient */
+    background-color: #0044cc; /* A strong, deep blue for a professional look */
+    background-image: linear-gradient(90deg, #0044cc, #cc0000); /* Use background-image for the gradient */
+}
+
+/* Hero Section */
+.hero {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This creates a semi-transparent dark overlay on your image for better text readability */
+    background: linear-gradient(120deg, rgba(0,68,204,0.7), rgba(204,0,0,0.7)), url('../images/glass-banner.jpg') no-repeat center/cover;
+}
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    .hero .btn {
+        border-radius: 30px;
+        font-weight: bold;
+    }
+
+/* About Section (index.html) */
+.about {
+    background-color: #f9f9f9; /* Light grey background for contrast */
+}
+
+    .about h2 {
+        color: #0044cc; /* Match the main brand color */
+        font-weight: bold;
+    }
+
+    .about p {
+        max-width: 800px;
+        margin: auto;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+/* Products Cards (products.html) */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.03); /* Subtle scale for hover effect */
+    }
+
+    .card img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+/* Footer */
+.custom-footer {
+    background-image: linear-gradient(90deg, #0044cc, #cc0000); /* Apply the gradient */
+    color: white; /* **CRITICAL FIX:** Ensure text is visible on the dark gradient */
+    font-size: 0.9rem;
+}
