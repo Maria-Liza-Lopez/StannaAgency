@@ -3,76 +3,95 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #ffffff; /* Ensures a clean white background */
 }
 
 /* Navbar */
 .custom-navbar {
-    /* Use a dominant color, or stick to the first color of your gradient */
-    background-color: #0044cc; /* A strong, deep blue for a professional look */
-    background-image: linear-gradient(90deg, #0044cc, #cc0000); /* Use background-image for the gradient */
+    /* Uses your desired gradient */
+    background-image: linear-gradient(white);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* Hero Section */
 .hero {
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* This creates a semi-transparent dark overlay on your image for better text readability */
-    background: linear-gradient(120deg, rgba(0,68,204,0.7), rgba(204,0,0,0.7)), url('../images/glass-banner.jpg') no-repeat center/cover;
+    background-image: url('imagenav.png'); /* Adjust filename with extension */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px; /* Or a suitable height for your design */
+    /* If there was a background-color, you would simply remove it here */
 }
 
     .hero h1 {
-        font-size: 3rem;
-        font-weight: bold;
+        font-size: 3.5rem; /* Slightly larger */
+        font-weight: 700;
     }
 
     .hero p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin-top: 10px;
     }
 
     .hero .btn {
         border-radius: 30px;
         font-weight: bold;
+        padding: 10px 30px;
+        transition: background-color 0.3s;
     }
 
-/* About Section (index.html) */
-.about {
-    background-color: #f9f9f9; /* Light grey background for contrast */
+/* About Section & New Sections */
+.about, .features {
+    background: #f8f9fa; /* Light gray background for contrast */
+    color: #333;
 }
 
-    .about h2 {
-        color: #0044cc; /* Match the main brand color */
+    .about h2, .features h2 {
+        color: #0044cc;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    .features .card {
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .features .card-title {
+        color: #cc0000;
         font-weight: bold;
     }
 
-    .about p {
-        max-width: 800px;
-        margin: auto;
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-
-/* Products Cards (products.html) */
+/* Products Cards */
+/* Products Cards */
 .card {
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    border: 1px solid #ddd;
+    /* Ensure consistent height for cards in a row */
+    display: flex;
+    flex-direction: column;
 }
 
-    .card:hover {
-        transform: scale(1.03); /* Subtle scale for hover effect */
-    }
+.card-body {
+    /* Ensure the body expands to fill available space */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps price/button at the bottom */
+}
 
-    .card img {
-        height: 200px;
-        object-fit: cover;
-    }
+.card img {
+    height: 220px;
+    object-fit: cover;
+}
+/* ... rest of your style.css ... */
 
 /* Footer */
 .custom-footer {
-    background-image: linear-gradient(90deg, #0044cc, #cc0000); /* Apply the gradient */
-    color: white; /* **CRITICAL FIX:** Ensure text is visible on the dark gradient */
-    font-size: 0.9rem;
+    background-image: linear-gradient(#000080);
+    color: white; /* Ensures text is visible */
+    font-size: 0.95rem;
 }
