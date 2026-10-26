@@ -3,28 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stanna Agencies - Glass Importers</title>
+    <title>Stanna Agencies - Premier Glass Importers Sri Lanka</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS & Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-blue: #0284c7;
+            --heading-red: #dc2626; /* Modern Red */
+            --light-glass: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --dark-glass: rgba(15, 23, 42, 0.65);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+
+        /* Red Section Headings */
+        .section-heading {
+            color: var(--heading-red) !important;
+        }
+
+        /* Top Utility Contact Bar */
+        .top-utility-bar {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            padding: 0.35rem 0;
+        }
+
+            .top-utility-bar a {
+                color: #38bdf8;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+                .top-utility-bar a:hover {
+                    color: #ffffff;
+                }
+
+        /* Slim Glassmorphism Navbar */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.96) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            padding-top: 0.2rem !important;
+            padding-bottom: 0.2rem !important;
+        }
+
+        /* Container for the Logo */
+        .brand-logo-container {
+            display: inline-flex;
+            align-items: center;
+            height: 60px; /* Slightly increased height to fit the expanded logo */
+            width: 260px; /* Gives enough horizontal space */
+            overflow: hidden;
+        }
+
+        /* Big Logo Crop & Scale - Fixed Margins */
+        .brand-logo-img {
+            height: 100px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            margin-top: -2px;
+            margin-left: 0px; /* Changed from -15px to 0px so the left side is fully visible */
+            transition: transform 0.2s ease;
+        }
+
+            .brand-logo-img:hover {
+                transform: scale(1.05);
+            }
+
+        /* Navbar Links */
+        .navbar-nav .nav-item {
+            position: relative;
+        }
+
+        .navbar-nav .nav-link {
+            color: #1e293b !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.4rem 1rem !important;
+            transition: color 0.2s ease;
+        }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 1rem;
+                right: 1rem;
+                background-color: var(--accent-blue);
+                transition: width 0.3s ease;
+                border-radius: 2px;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: calc(100% - 2rem);
+            }
+
+            .navbar-nav .nav-link:hover,
+            .navbar-nav .nav-link.active {
+                color: var(--accent-blue) !important;
+            }
+
+        /* Hero Carousel */
+        .carousel-item {
+            height: 80vh;
+            min-height: 500px;
+            max-height: 700px;
+        }
+
+            .carousel-item img {
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.75) 100%);
+        }
+
+        /* Adjusted Hero Caption Card Width */
+        .hero-caption-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            max-width: 630px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f172a;
+            font-weight: 700;
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+            .btn-glass:hover {
+                background: #ffffff;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+                color: var(--accent-blue);
+            }
+
+        /* Experience Badge Callout */
+        .badge-experience {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* AGC Partner Banner Styling */
+        .agc-partner-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+            .agc-partner-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 25px -5px rgba(220, 38, 38, 0.15);
+                border-color: rgba(220, 38, 38, 0.3);
+            }
+
+        .agc-logo-img {
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+            transition: opacity 0.2s;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.15);
+                border-color: rgba(2, 132, 199, 0.3);
+            }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--heading-red);
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Footer */
+        .custom-footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+        }
+
+            .custom-footer a {
+                color: #38bdf8;
+                text-decoration: none;
+            }
+
+                .custom-footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="logo4.png" alt="Stanna Agencies Logo" class="img-fluid me-2" style="height:50px; max-height:60px;">
+
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+        <div class="container align-items-center">
+            <!-- Brand Big Logo in Slim Frame -->
+            <a class="navbar-brand brand-logo-container me-auto p-0" href="index.html">
+                <img src="logo4.png" alt="Stanna Agencies Logo" class="brand-logo-img">
             </a>
-            <div class="d-flex">
-                <a class="nav-link text-dark fw-bold me-3" href="index.html">Home</a>
-                <a class="nav-link text-dark fw-bold me-3" href="products.html">Glass Details</a>
-                <a class="nav-link text-dark fw-bold" href="Contact.html">Contact</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-lg-2 mt-2 mt-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Glass Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact Us</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-
+    <!-- Hero Carousel Section -->
     <section>
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="min-height: 400px; position: relative;">
-
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -32,32 +302,42 @@
             </div>
 
             <div class="carousel-inner">
-
+                <!-- Slide 1 -->
                 <div class="carousel-item active">
-                    <img src="slide1.PNG" class="d-block w-100" alt="Modern Glass Architecture" style="object-fit: cover; height: 400px;">
-
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center text-white" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.4);">
-                        <h1 class="display-4 fw-bold">Manufacturer's</h1>
-                        <h2 class="display-4 fw-bold">Representative - Importers</h2>
-                        <a href="products.html" class="btn btn-light btn-lg mt-3">Explore Products</a>
+                    <img src="slide1.PNG" class="d-block w-100" alt="Modern Glass Architecture">
+                    <div class="hero-overlay d-flex align-items-center justify-content-center">
+                        <div class="hero-caption-card text-center text-white mx-3">
+                            <span class="badge-experience">Established Since 1972</span>
+                            <h1 class="display-5 fw-bold mb-3">Manufacturers' Representative & Glass Importers</h1>
+                            <p class="lead mb-4 opacity-90 fs-6">Delivering premium structural and architectural glass solutions across Sri Lanka for over 50 years.</p>
+                            <a href="products.html" class="btn btn-glass btn-lg">Explore Glass Catalogue <i class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Slide 2 -->
                 <div class="carousel-item">
-                    <img src="slide2.PNG" class="d-block w-100" alt="Sleek Glass Facades" style="object-fit: cover; height: 400px;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center text-white" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.4);">
-                        <h1 class="display-4 fw-bold">Manufacturer's</h1>
-                        <h2 class="display-4 fw-bold">Representative - Importers</h2>
-                        <a href="products.html" class="btn btn-light btn-lg mt-3">Explore Products</a>
+                    <img src="slide2.PNG" class="d-block w-100" alt="Sleek Glass Facades">
+                    <div class="hero-overlay d-flex align-items-center justify-content-center">
+                        <div class="hero-caption-card text-center text-white mx-3">
+                            <span class="badge-experience">Architectural Precision</span>
+                            <h1 class="display-5 fw-bold mb-3">Custom Cut & Certified Glass Products</h1>
+                            <p class="lead mb-4 opacity-90 fs-6">Float, Tempered, Laminated, and Specialty architectural glass tailored to your specifications.</p>
+                            <a href="products.html" class="btn btn-glass btn-lg">View Product Range <i class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Slide 3 -->
                 <div class="carousel-item">
-                    <img src="slide3.PNG" class="d-block w-100" alt="Interior Glass Solutions" style="object-fit: cover; height: 400px;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center text-white" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.4);">
-                        <h1 class="display-4 fw-bold">Manufacturer's</h1>
-                        <h2 class="display-4 fw-bold">Representative - Importers</h2>
-                        <a href="products.html" class="btn btn-light btn-lg mt-3">Explore Products</a>
+                    <img src="slide3.PNG" class="d-block w-100" alt="Interior Glass Solutions">
+                    <div class="hero-overlay d-flex align-items-center justify-content-center">
+                        <div class="hero-caption-card text-center text-white mx-3">
+                            <span class="badge-experience">Trusted Trade Partner</span>
+                            <h1 class="display-5 fw-bold mb-3">Direct Import & Unmatched Value</h1>
+                            <p class="lead mb-4 opacity-90 fs-6">Providing competitive wholesale rates without compromising on international quality standards.</p>
+                            <a href="Contact.html" class="btn btn-glass btn-lg">Get a Custom Quote <i class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,60 +353,103 @@
         </div>
     </section>
 
-    <section class="about py-5 text-center">
-        <div class="container">
-            <h2 class="mb-4">About Us</h2>
-            <p class="lead">
-                Stanna Agencies is a trusted importer and distributor of high-quality glass in Sri Lanka over a period of 50 years, since 1972.
-                We provide a wide range of glass types, including Float, Tempered, Laminated, and Frosted Glass,
-                catering to construction, interiors, and design needs. Our commitment is to quality, competitive pricing,
-                and timely delivery to all our clients.
-            </p>
-        </div>
-    </section>
+    <!-- About Us Section -->
+    <section class="about py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="fw-bold mb-3 section-heading">50+ Years of Excellence in Glass Importation</h2>
+                    <div class="mx-auto mb-4" style="width: 60px; height: 3px; background-color: var(--heading-red);"></div>
+                    <p class="lead text-secondary fs-5 lh-lg mb-5">
+                        <strong>Stanna Agencies</strong> is a premier importer and distributor of high-quality architectural glass in Sri Lanka.
+                        Since 1972, we have been standardizing trust, offering an extensive selection including
+                        <span class="text-dark fw-semibold">Float, Tempered, Laminated, and Frosted Glass</span> tailored for commercial developments,
+                        residential interiors, and custom architectural projects.
+                    </p>
 
-    <section class="features py-5">
-        <div class="container text-center">
-            <h2>Why Choose Stanna Agencies?</h2>
-            <div class="row g-4 pt-3">
-
-
-                <div class="col-md-3">
-                    <div class="card p-4">
-                        <h5 class="card-title">More than 50 years of Long standing service in Sri Lanka</h5>
-                        <p class="card-text">Ensures superior quality</p>
-                    </div>
-                </div>
-
-
-                <div class="col-md-3">
-                    <div class="card p-4">
-                        <h5 class="card-title">Safety Certified</h5>
-                        <p class="card-text">All our glass products meet local and international safety and building standards.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card p-4">
-                        <h5 class="card-title">Custom Solutions</h5>
-                        <p class="card-text">We offer precise cutting and custom fabrication to meet unique architectural demands.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card p-4">
-                        <h5 class="card-title">Competitive Pricing</h5>
-                        <p class="card-text">As direct importers, we guarantee the best prices in the market without compromising quality.</p>
+                    <!-- Clickable AGC Partner Logo Banner -->
+                    <div class="mt-4">
+                        <p class="text-uppercase text-muted fw-bold small tracking-widest mb-3" style="letter-spacing: 1px;">Proudly Importing & Representing Products From</p>
+                        <a href="https://agc-glassasia.com/" target="_blank" rel="noopener noreferrer" class="agc-partner-card">
+                            <!-- Replace 'agc-logo.png' with your actual image filename -->
+                            <img src="agc-logo.png" alt="AGC Glass Asia" class="agc-logo-img">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="custom-footer text-center p-3">
-        © 2025 Stanna Agencies | Email: stanna@sltnet.lk
+    <!-- Why Choose Us Section -->
+    <section class="features py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold section-heading">Why Choose Stanna Agencies?</h2>
+                <p class="text-muted">Uncompromising quality and legacy service in Sri Lanka</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">50+ Years Legacy</h5>
+                        <p class="text-muted small mb-0">Decades of market presence ensuring deep industry experience and trust.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Safety Certified</h5>
+                        <p class="text-muted small mb-0">All products comply with strict international building safety standards.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Custom Solutions</h5>
+                        <p class="text-muted small mb-0">Precision cutting and customized fabrication for architectural needs.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-tags"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Direct Importer Pricing</h5>
+                        <p class="text-muted small mb-0">Direct-from-manufacturer pricing without middleman markups.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact CTA Section -->
+    <section class="py-5 text-white" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+        <div class="container text-center py-3">
+            <h3 class="fw-bold mb-3">Looking for High-Quality Glass Supplies?</h3>
+            <p class="text-light mb-4 opacity-75">Get in touch with our expert team today for quotes, specifications, or direct orders.</p>
+            <a href="Contact.html" class="btn btn-danger btn-lg rounded-pill px-4 me-2">Contact Us Now</a>
+            <a href="mailto:stanna@sltnet.lk" class="btn btn-outline-light btn-lg rounded-pill px-4 mt-2 mt-sm-0"><i class="bi bi-envelope me-2"></i>stanna@sltnet.lk</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="custom-footer py-4 text-center">
+        <div class="container">
+            <p class="mb-0 small">© 2025 Stanna Agencies. All rights reserved. | Direct Line: <a href="mailto:stanna@sltnet.lk">stanna@sltnet.lk</a></p>
+        </div>
     </footer>
 
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -3,49 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact - Stanna Agencies</title>
+    <title>Contact Us - Stanna Agencies</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS & Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-blue: #0284c7;
+            --heading-red: #dc2626; /* Matching Modern Red */
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: var(--light-bg);
+        }
+
+        /* Red Section Headings */
+        .section-heading {
+            color: var(--heading-red) !important;
+        }
+
+        /* Top Utility Contact Bar */
+        .top-utility-bar {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            padding: 0.35rem 0;
+        }
+
+            .top-utility-bar a {
+                color: #38bdf8;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+                .top-utility-bar a:hover {
+                    color: #ffffff;
+                }
+
+        /* Slim Glassmorphism Navbar */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.96) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            padding-top: 0.2rem !important;
+            padding-bottom: 0.2rem !important;
+        }
+
+        /* Container for the Logo */
+        .brand-logo-container {
+            display: inline-flex;
+            align-items: center;
+            height: 60px; /* Slightly increased height to fit the expanded logo */
+            width: 260px; /* Gives enough horizontal space */
+            overflow: hidden;
+        }
+
+        /* Big Logo Crop & Scale - Fixed Margins */
+        .brand-logo-img {
+            height: 100px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            margin-top: -2px;
+            margin-left: 0px; /* Changed from -15px to 0px so the left side is fully visible */
+            transition: transform 0.2s ease;
+        }
+
+            .brand-logo-img:hover {
+                transform: scale(1.05);
+            }
+
+        /* Navbar Links */
+        .navbar-nav .nav-item {
+            position: relative;
+        }
+
+        .navbar-nav .nav-link {
+            color: #1e293b !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.4rem 1rem !important;
+            transition: color 0.2s ease;
+        }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 1rem;
+                right: 1rem;
+                background-color: var(--accent-blue);
+                transition: width 0.3s ease;
+                border-radius: 2px;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: calc(100% - 2rem);
+            }
+
+            .navbar-nav .nav-link:hover,
+            .navbar-nav .nav-link.active {
+                color: var(--accent-blue) !important;
+            }
+
+        /* Hero Banner */
+        .contact-hero {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%), url('slide3.PNG');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 0;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem 1.5rem;
+            background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+            .contact-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.15);
+                border-color: rgba(220, 38, 38, 0.3);
+            }
+
+        .icon-wrapper {
+            width: 65px;
+            height: 65px;
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--heading-red);
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Form Controls */
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            padding: 0.75rem 1rem;
+        }
+
+            .form-control:focus, .form-select:focus {
+                border-color: var(--heading-red);
+                box-shadow: 0 0 0 0.25rem rgba(220, 38, 38, 0.15);
+            }
+
+        /* Footer */
+        .custom-footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+        }
+
+            .custom-footer a {
+                color: #38bdf8;
+                text-decoration: none;
+            }
+
+                .custom-footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="logo4.png" alt="Stanna Agencies Logo" class="img-fluid me-2" style="height:50px; max-height:60px;">
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+        <div class="container align-items-center">
+            <!-- Brand Big Logo in Slim Frame -->
+            <a class="navbar-brand brand-logo-container me-auto p-0" href="index.html">
+                <img src="logo4.png" alt="Stanna Agencies Logo" class="brand-logo-img">
             </a>
-            <div class="d-flex">
-                <a class="nav-link text-dark fw-bold me-3" href="index.html">Home</a>
-                <a class="nav-link text-dark fw-bold me-3" href="products.html">Glass Details</a>
-                <a class="nav-link text-dark fw-bold" href="Contact.html">Contact</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-lg-2 mt-2 mt-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Glass Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Contact.html">Contact Us</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero text-center text-white d-flex align-items-center">
+    <!-- Page Hero Banner -->
+    <section class="contact-hero text-center text-white">
         <div class="container">
-            <h1 class="display-4 fw-bold">Contact Us</h1>
-            <p class="lead">We’re here to help with your glass requirements.</p>
+            <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+            <p class="lead opacity-90 mx-auto" style="max-width: 600px;">We're here to help with your architectural and commercial glass requirements.</p>
         </div>
     </section>
 
-    <section>
-        <!-- Contact Info -->
-        <div class="container py-5 text-center">
-            <h1>Get in Touch</h1>
-            <p><h2><strong>Email:</strong> stanna@sltnet.lk</h2></p>
+    <!-- Contact Info Cards Section -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold section-heading mb-2">Get in Touch</h2>
+                <div class="mx-auto" style="width: 60px; height: 3px; background-color: var(--heading-red);"></div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Direct Email Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card text-center shadow-sm">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-envelope-open-fill"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">Email Inquiry</h5>
+                        <p class="text-muted small mb-3">Send us an email for quotes, catalogues, or direct trade inquiries.</p>
+                        <a href="mailto:stanna@sltnet.lk" class="btn btn-outline-danger rounded-pill px-4 fw-bold">stanna@sltnet.lk</a>
+                    </div>
+                </div>
+
+                <!-- Business Hours Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card text-center shadow-sm">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">Operating Hours</h5>
+                        <p class="text-muted small mb-1">Monday – Friday</p>
+                        <p class="fw-bold text-dark mb-0">8:30 AM – 5:00 PM</p>
+                    </div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card text-center shadow-sm">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">Location</h5>
+                        <p class="fw-bold text-dark mb-0">Colombo, Sri Lanka</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main>
-        <!-- all your page content here -->
-    </main>
+    <!-- Interactive Contact Form Section (COMMENTED OUT FOR NOW)
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+                        <h3 class="fw-bold text-center section-heading mb-3">Send Us a Message</h3>
+                        <p class="text-muted text-center mb-4">Fill out the form below and our team will respond to your request promptly.</p>
 
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold text-dark">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold text-dark">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="name@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold text-dark">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="+94 77 123 4567">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold text-dark">Glass Interest</label>
+                                    <select class="form-select">
+                                        <option selected>Select Glass Type...</option>
+                                        <option>Float Glass</option>
+                                        <option>Tempered Glass</option>
+                                        <option>Laminated Glass</option>
+                                        <option>Coated (Low-E) Glass</option>
+                                        <option>Tinted Glass</option>
+                                        <option>INDOFIGUR Patterned Glass</option>
+                                        <option>Other Requirements</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold text-dark">Your Message / Inquiry</label>
+                                    <textarea class="form-control" rows="5" placeholder="Please describe your glass requirements, quantities, or project details..." required></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-danger btn-lg rounded-pill px-5 fw-bold">Send Message <i class="bi bi-send ms-2"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
     <!-- Footer -->
-    <footer class="custom-footer text-center p-3">
-        &copy; 2025 Stanna Agencies | Email: stanna@sltnet.lk
+    <footer class="custom-footer py-4 text-center">
+        <div class="container">
+            <p class="mb-0 small">© 2025 Stanna Agencies. All rights reserved. | Direct Line: <a href="mailto:stanna@sltnet.lk">stanna@sltnet.lk</a></p>
+        </div>
     </footer>
+
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

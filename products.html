@@ -4,84 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Glass Products - Stanna Agencies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-blue: #0284c7;
+            --heading-red: #dc2626; /* Matching Modern Red */
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: var(--light-bg);
+        }
+
+        /* Red Section Headings */
+        .section-heading {
+            color: var(--heading-red) !important;
+        }
+
+        /* Top Utility Contact Bar */
+        .top-utility-bar {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            padding: 0.35rem 0;
+        }
+
+            .top-utility-bar a {
+                color: #38bdf8;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+                .top-utility-bar a:hover {
+                    color: #ffffff;
+                }
+
+        /* Slim Glassmorphism Navbar */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.96) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            padding-top: 0.2rem !important;
+            padding-bottom: 0.2rem !important;
+        }
+
+        /* Container for the Logo */
+        .brand-logo-container {
+            display: inline-flex;
+            align-items: center;
+            height: 60px; /* Slightly increased height to fit the expanded logo */
+            width: 260px; /* Gives enough horizontal space */
+            overflow: hidden;
+        }
+
+        /* Big Logo Crop & Scale - Fixed Margins */
+        .brand-logo-img {
+            height: 100px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            margin-top: -2px;
+            margin-left: 0px; /* Changed from -15px to 0px so the left side is fully visible */
+            transition: transform 0.2s ease;
+        }
+
+            .brand-logo-img:hover {
+                transform: scale(1.05);
+            }
+
+        /* Navbar Links */
+        .navbar-nav .nav-item {
+            position: relative;
+        }
+
+        .navbar-nav .nav-link {
+            color: #1e293b !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.4rem 1rem !important;
+            transition: color 0.2s ease;
+        }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 1rem;
+                right: 1rem;
+                background-color: var(--accent-blue);
+                transition: width 0.3s ease;
+                border-radius: 2px;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: calc(100% - 2rem);
+            }
+
+            .navbar-nav .nav-link:hover,
+            .navbar-nav .nav-link.active {
+                color: var(--accent-blue) !important;
+            }
+
+        /* Hero Banner */
+        .products-hero {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%), url('slide1.PNG');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 0;
+        }
+
+        /* Product Cards */
+        .product-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+        }
+
+            .product-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.15);
+                border-color: rgba(220, 38, 38, 0.3);
+            }
+
+            .product-card img {
+                height: 220px;
+                object-fit: cover;
+            }
+
+        .product-badge {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--heading-red);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .custom-footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+        }
+
+            .custom-footer a {
+                color: #38bdf8;
+                text-decoration: none;
+            }
+
+                .custom-footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="logo4.png" alt="Stanna Agencies Logo" class="img-fluid me-2" style="height:50px; max-height:60px;">
+
+    
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+        <div class="container align-items-center">
+            <!-- Brand Big Logo in Slim Frame -->
+            <a class="navbar-brand brand-logo-container me-auto p-0" href="index.html">
+                <img src="logo4.png" alt="Stanna Agencies Logo" class="brand-logo-img">
             </a>
-            <div class="d-flex">
-                <a class="nav-link text-dark fw-bold me-3" href="index.html">Home</a>
-                <a class="nav-link text-dark fw-bold me-3" href="products.html">Glass Details</a>
-                <a class="nav-link text-dark fw-bold" href="Contact.html">Contact</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-lg-2 mt-2 mt-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Glass Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact Us</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-
-    <section class="hero text-center text-white d-flex align-items-center justify-content-center">
+    <!-- Page Hero Section -->
+    <section class="products-hero text-center text-white">
         <div class="container">
-            <h1 class="display-4 fw-bold">Our Glass Products</h1>
-            <p class="lead">Specialized glass solutions for modern architecture and interior design.</p>
+            <h1 class="display-4 fw-bold mb-3">Our Glass Products</h1>
+            <p class="lead opacity-90 mx-auto" style="max-width: 600px;">Specialized architectural and interior glass solutions imported with uncompromising international quality.</p>
         </div>
     </section>
 
-    <div class="container py-5">
-        <h2 class="text-center mb-5" style="color:#0044cc; font-weight:600;">Specialized Glass Solutions</h2>
-        <div class="row g-4">
+    <!-- Product Details Grid Section -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold section-heading mb-2">Specialized Glass Solutions</h2>
+                <div class="mx-auto" style="width: 60px; height: 3px; background-color: var(--heading-red);"></div>
+            </div>
 
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <img src="coated.PNG" class="card-img-top" alt="Coated Glass (Low-E)">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Coated Glass (Low-E)</h5>
-                        <p class="card-text small text-muted">Energy-efficient glass with a microscopic coating that reflects heat, reducing utility bills and improving comfort.</p>
-                        <h7 class="card-title"><i>Products Available</i></h7>
-                        <p class="card-text small text-muted">Stepsol,Sunergy,Planibel G</p>
-                        <p class="card-text fw-bold mt-2">Price on Request</p>
+            <div class="row g-4">
+                <!-- Coated Glass Card -->
+                <div class="col-md-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="coated.PNG" class="card-img-top" alt="Coated Glass (Low-E)">
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <h5 class="fw-bold mb-3">Coated Glass (Low-E)</h5>
+                            <p class="small text-muted mb-3 flex-grow-1">Energy-efficient glass with a microscopic coating that reflects thermal radiation, reducing energy bills and optimizing indoor thermal comfort.</p>
+
+                            <div class="mb-3">
+                                <span class="product-badge mb-2">Available Products</span>
+                                <p class="small text-dark fw-semibold mb-0">Stopsol, Sunergy, Planibel G</p>
+                            </div>
+
+                            <div class="border-top pt-3 mt-auto">
+                                <p class="fw-bold text-dark mb-0">Price on Request</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tinted Glass Card -->
+                <div class="col-md-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="tinted.PNG" class="card-img-top" alt="Tinted Glass">
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <h5 class="fw-bold mb-3">Tinted Glass</h5>
+                            <p class="small text-muted mb-3 flex-grow-1">Body-tinted glass designed to absorb solar heat, glare reduction, and provide striking visual aesthetics for facade developments.</p>
+
+                            <div class="mb-3">
+                                <span class="product-badge mb-2">Available Colors</span>
+                                <p class="small text-dark fw-semibold mb-0">Bronze, Dark Grey, Green, Euro Grey, Blue Green, Dark Blue</p>
+                            </div>
+
+                            <div class="border-top pt-3 mt-auto">
+                                <p class="fw-bold text-dark mb-0">Price on Request</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INDOFIGUR Glass Card -->
+                <div class="col-md-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="indofigur.png" class="card-img-top" alt="INDOFIGUR">
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <h5 class="fw-bold mb-3">INDOFIGUR</h5>
+                            <p class="small text-muted mb-3 flex-grow-1">Decorative patterned and figured glass engineered for privacy while permitting light diffusion across modern interior spaces.</p>
+
+                            <div class="mb-3">
+                                <span class="product-badge mb-2">Available Patterns</span>
+                                <p class="small text-dark fw-semibold mb-0">Moru, Lotus, Diamond, Mislite, Non-Glare</p>
+                            </div>
+
+                            <div class="border-top pt-3 mt-auto">
+                                <p class="fw-bold text-dark mb-0">Price on Request</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <img src="tinted.PNG" class="card-img-top" alt="Tinted Glass">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tinted Glass</h5>
-                        <p class="card-text small text-muted">Colored glass that absorbs solar radiation, offering glare reduction and enhancing the aesthetic appeal of a building.</p>
-                        <h7 class="card-title"><i>Colours Available</i></h7>
-                        <p class="card-text small text-muted">Bronze,Dark Grey,Green,Euro Grey,Blue green,Dark blue</p>
-                        <p class="card-text fw-bold mt-2">Price on Request</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <img src="indofigur.png" class="card-img-top" alt="INDOFIGUR">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">INDOFIGUR</h5>
-                        <p class="card-text small text-muted">Decorative figured/patterned glass, providing high privacy while allowing light through for stylish interiors and partitions.</p>
-                        <h7 class="card-title"><i>Products Available</i></h7>
-                        <p class="card-text small text-muted">Moru,Lotus,Diamond,Mislite,Non glare</p>
-                        <p class="card-text fw-bold mt-2">Price on Request</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
 
-    <footer class="custom-footer text-center p-3">
-        © 2025 Stanna Agencies | Email: stanna@sltnet.lk
+    <!-- Quick Contact CTA Section -->
+    <section class="py-5 text-white" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+        <div class="container text-center py-3">
+            <h3 class="fw-bold mb-3">Need Custom Specifications or Bulk Orders?</h3>
+            <p class="text-light mb-4 opacity-75">Contact our sales team today to discuss glass sizing, direct importing rates, and technical specifications.</p>
+            <a href="Contact.html" class="btn btn-danger btn-lg rounded-pill px-4 me-2">Get a Custom Quote</a>
+            <a href="mailto:stanna@sltnet.lk" class="btn btn-outline-light btn-lg rounded-pill px-4 mt-2 mt-sm-0"><i class="bi bi-envelope me-2"></i>stanna@sltnet.lk</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="custom-footer py-4 text-center">
+        <div class="container">
+            <p class="mb-0 small">© 2025 Stanna Agencies. All rights reserved. | Direct Line: <a href="mailto:stanna@sltnet.lk">stanna@sltnet.lk</a></p>
+        </div>
     </footer>
 
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
